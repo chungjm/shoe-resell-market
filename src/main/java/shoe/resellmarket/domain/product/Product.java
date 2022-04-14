@@ -1,12 +1,12 @@
-package shoe.resellmarket.domain.item;
+package shoe.resellmarket.domain.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import shoe.resellmarket.domain.BaseTimeEntity;
-import shoe.resellmarket.domain.item.common.Currency;
-import shoe.resellmarket.domain.item.common.SizeClassification;
-import shoe.resellmarket.domain.item.common.SizeUnit;
+import shoe.resellmarket.domain.product.common.Currency;
+import shoe.resellmarket.domain.product.common.SizeClassification;
+import shoe.resellmarket.domain.product.common.SizeUnit;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,10 +15,11 @@ import java.time.LocalDate;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Item extends BaseTimeEntity {
+public class Product extends BaseTimeEntity {
 
     @Id
     @GeneratedValue
+    @Column(name = "product_id")
     private Long id;
 
     private String name;
