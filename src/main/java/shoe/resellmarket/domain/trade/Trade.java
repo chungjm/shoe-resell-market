@@ -73,4 +73,6 @@ public class Trade extends BaseTimeEntity {
         this.shippingAddress = shippingAddress;
         this.returnAddress = returnAddress;
     }
+
+
 }

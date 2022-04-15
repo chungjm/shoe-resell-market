@@ -4,12 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import shoe.resellmarket.domain.BaseTimeEntity;
+import shoe.resellmarket.domain.brand.Brand;
 import shoe.resellmarket.domain.product.common.Currency;
 import shoe.resellmarket.domain.product.common.SizeClassification;
 import shoe.resellmarket.domain.product.common.SizeUnit;
+import shoe.resellmarket.domain.trade.Trade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -54,8 +58,10 @@ public class Product extends BaseTimeEntity {
 
     private String resizedImagePath;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
-
-
-
+    @OneToMany(mappedBy = "product", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Trade> trades = new ArrayList<>();
 }
